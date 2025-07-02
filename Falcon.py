@@ -123,15 +123,17 @@ def export_chat_history(format_type: str = 'csv'):
         return None
 
 if __name__ == '__main__':
-    print("Starting FALCON UI application...")
-    print("Access the UI at http://localhost:8000")
-    
-    try:
-        eel.start('index.html', size=(990, 540), block=True, host='localhost', port=8000)
-    except (OSError, IOError) as e:
-        print(f"Could not start Eel: {e}")
-        print("Ensure port 8000 is not already in use.")
-    except Exception as e:
-        print(f"An unexpected error occurred while starting Eel: {e}")
-    finally:
-        print("FALCON UI application has closed.")
+    if os.environ.get("CI") == "true":
+        print("🟡 CI environment detected (GitHub Actions) — Skipping Eel UI launch")
+    else:
+        print("Starting FALCON UI application...")
+        print("Access the UI at http://localhost:8000")
+        try:
+            eel.start('index.html', size=(990, 540), block=True, host='localhost', port=8000)
+        except (OSError, IOError) as e:
+            print(f"Could not start Eel: {e}")
+            print("Ensure port 8000 is not already in use.")
+        except Exception as e:
+            print(f"An unexpected error occurred while starting Eel: {e}")
+        finally:
+            print("FALCON UI application has closed.")
