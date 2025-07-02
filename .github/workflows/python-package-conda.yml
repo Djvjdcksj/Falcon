@@ -15,5 +15,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install packaging edge-tts
         pip install -r requirements.txt
+        pip install packaging
     - name: Run Falcon.py
       run: python Falcon.py
