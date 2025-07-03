@@ -446,4 +446,13 @@
         function scrollToBottom() {
             // A short delay helps ensure the element is fully rendered and height calculated
             setTimeout(() => {
-  
+                  conversationArea.scrollTop = conversationArea.scrollHeight;
+            }, 50);
+        }
+
+        // Initial state update
+        updateMicButtonState('idle');
+
+    </script>
+</body>
+</html>
