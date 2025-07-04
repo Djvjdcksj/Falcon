@@ -8,3 +8,7 @@ pygame
 eel
 pandas
 requests
+flask
+pygame
+edge-tts
+packaging
